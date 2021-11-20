@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -21,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+    }
 
+    public void details(View view) {
         firstname = findViewById(R.id.first_name);
         lastname = findViewById(R.id.last_name);
         email1 = findViewById(R.id.email);
@@ -30,10 +34,9 @@ public class MainActivity extends AppCompatActivity {
         swt = findViewById(R.id.Aswt);
 
         String Sval = "";
-        if(swt.isChecked()){
+        if (swt.isChecked()) {
             Sval = "MCA";
-        }
-        else{
+        } else {
             Sval = "BCA";
         }
 
@@ -49,17 +52,16 @@ public class MainActivity extends AppCompatActivity {
         String gender = gn.getText().toString();
         String city = spinner.getSelectedItem().toString();
 
-        Intent a = new Intent(MainActivity.this,MainActivity2.class);
+        Intent a = new Intent(MainActivity.this, MainActivity2.class);
 
-        a.putExtra("fname",fname);
-        a.putExtra("lname",lname);
-        a.putExtra("email",email);
-        a.putExtra("pass",pass);
-        a.putExtra("gen",gender);
-        a.putExtra("branch",Sval);
-        a.putExtra("city",city);
+        a.putExtra("fname", fname);
+        a.putExtra("lname", lname);
+        a.putExtra("email", email);
+        a.putExtra("pass", pass);
+        a.putExtra("gen", gender);
+        a.putExtra("branch", Sval);
+        a.putExtra("city", city);
 
         startActivity(a);
-
     }
 }
